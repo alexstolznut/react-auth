@@ -1,13 +1,25 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router';
+import { useToken } from '../auth/useToken';
+import { useUser } from '../auth/useUser';
+import axios from 'axios';
 
 export default function LoginPage() {
+
+    
+
+ 
+    const user = useUser();
+    const [token, setToken] = useToken();
     const [errorMessage, setErrorMessage] = useState('');
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const history = useHistory();
+    if(user) {
+        history.push('/');
+    }
     const onChange = (e) => {
         if(e.target.type === 'password'){
             setPassword(e.target.value)
@@ -18,6 +30,16 @@ export default function LoginPage() {
         }
     }
     const onLoginClick = async() => {
+        const response = await axios.post('/api/login',{
+            email: email,
+            password: password
+        });
+
+        const { token } = response.data;
+
+        setToken(token);
+
+        history.push('/');
 
     }
     return (
