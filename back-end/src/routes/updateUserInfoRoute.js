@@ -5,7 +5,7 @@ import {ObjectID} from 'mongodb';
 export const updateUserInfoRoute = {
     path: '/api/users/:userId/updateInfo',
     method: 'put',
-    handler: async (req, res) => {
+    handler: async (req, res) => { 
         const { authorization } = req.headers;
         const { userId } = req.params;
         const updates = ({
