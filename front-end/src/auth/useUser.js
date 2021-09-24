@@ -15,12 +15,13 @@ export const useUser = () => {
     });
 
     useEffect(()=> {
+        console.log('useUser', token);
         if(!token) {
             setUser(null)
         } else {
             setUser(getPayloadFromToken(token));
         }
-    }, [token],);
+    }, [token]);
 
     return user;
 }

@@ -3,12 +3,13 @@ import jwt from 'jsonwebtoken';
 import {ObjectID} from 'mongodb';
 
 export const updateUserInfoRoute = {
-    path: '/api/users/:userId/updateInfo',
+    path: '/api/users/:userId/updateinfo',
     method: 'put',
     handler: async (req, res) => { 
         const { authorization } = req.headers;
         const { userId } = req.params;
-        const updates = ({
+        console.log(req.body.favoriteFood, req.body.hairColor, req.body.bio);
+        const updates = (({
             favoriteFood,
             hairColor,
             bio
@@ -16,7 +17,7 @@ export const updateUserInfoRoute = {
             favoriteFood,
             hairColor,
             bio
-        })(req.body);
+        }))(req.body);
 
         if(!authorization) {
             return res.status(401).json({error:'no authorization header sent'});
@@ -34,22 +35,25 @@ export const updateUserInfoRoute = {
             if(id !== userId) {
                 return res.status(403).json({message:'not allowed to update that users data'});
             }
-
+            
             const db = getDbConnection('react-auth-db');
             const result = db.collection('users').findOneAndUpdate(
                 {_id: ObjectID(id)},
                 {$set: {info: updates}},
                 {returnOriginal: false},
             );
+       db.collection('users').findOne({_id:ObjectID(id)}).then(data=>console.log(data));
         const {isVerified, email, info} = result;
-
-        jwt.sign({email, isVerified, info}, process.env.JWT_SECRET, {expiresIn: '2d'}, (err, token)=>{
+        console.log(process.env.JWT_SECRET);
+        jwt.sign({id, email, isVerified, info}, process.env.JWT_SECRET, {expiresIn: '2d'}, (err, token)=>{
             if(err){
                 return res.status(500).json({error: err})
             }
-            res.status(200).json({token});
-        })
-        } 
+            console.log(token);
+            res.status(200).json(token);
+        });
+        });
+        
 
     },
 }
