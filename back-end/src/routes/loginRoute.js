@@ -17,6 +17,7 @@ export const loginRoute = {
        }
 
        const {_id:id, isVerified, passwordHash, info} = user;
+       console.log('backend',info);
 
        const isCorrect = await bcrypt.compare(password, passwordHash);
        

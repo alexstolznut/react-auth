@@ -6,7 +6,7 @@ import { useUser } from '../auth/useUser';
 
 export const UserInfoPage = () => {
     const user = useUser();
-    const [token ,setToken] = useToken();
+    const [token, setToken] = useToken();
 
     const { id, email, info } = user;
     // We'll use the history to navigate the user
@@ -16,11 +16,11 @@ export const UserInfoPage = () => {
 
     // These states are bound to the values of the text inputs
     // on the page (see JSX below). 
-    const [favoriteFood, setFavoriteFood] = useState(info.favoriteFood);
+    const [favoriteFood, setFavoriteFood] = useState(info.favoriteFood || '');
     const [hairColor, setHairColor] = useState(info.hairColor || '');
     const [bio, setBio] = useState(info.bio || '');
 
-    console.log(favoriteFood, hairColor, bio);
+    
 
     // These state variables control whether or not we show
     // the success and error message sections after making
@@ -41,7 +41,9 @@ export const UserInfoPage = () => {
     }, [showSuccessMessage, showErrorMessage]);
 
     const saveChanges = async () => {
+        
         try {
+            console.log('save chnages', token);
             const response = await axios.put(`/api/users/${id}/updateinfo`, {
                 favoriteFood,
                 hairColor,
@@ -50,7 +52,7 @@ export const UserInfoPage = () => {
                 headers: { Authorization: `Bearer ${token}`}
             });
             // let newToken;
-            const  newToken = response.data;
+            const  { token: newToken } = response.data;
             console.log('token', newToken);
             setToken(newToken);
             setShowSuccessMessage(true);

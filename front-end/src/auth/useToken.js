@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { useUser } from './useUser';
 
 export const useToken = () => {
-    console.log(localStorage.getItem('token'));
     const [token, setTokenInternal] = useState(()=>{
         return localStorage.getItem('token');
     });
@@ -10,6 +10,6 @@ export const useToken = () => {
         localStorage.setItem('token', newToken);
         setTokenInternal(newToken);
     }
-
+    
     return [token, setToken];
 }

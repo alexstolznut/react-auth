@@ -4,6 +4,8 @@ import { useToken } from './useToken';
 export const useUser = () => {
     const [token] = useToken();
 
+    console.log('useUser', token);
+
     const getPayloadFromToken = token => {
         const encodedPayload = token.split('.')[1];
         return JSON.parse(window.atob(encodedPayload));
@@ -15,7 +17,6 @@ export const useUser = () => {
     });
 
     useEffect(()=> {
-        console.log('useUser', token);
         if(!token) {
             setUser(null)
         } else {
