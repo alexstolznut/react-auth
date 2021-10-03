@@ -12,7 +12,7 @@ export const UserInfoPage = () => {
     // We'll use the history to navigate the user
     // programmatically later on (we're not using it yet)
     const history = useHistory();
-    console.log(info)
+ 
 
     // These states are bound to the values of the text inputs
     // on the page (see JSX below). 
@@ -51,10 +51,12 @@ export const UserInfoPage = () => {
             }, {
                 headers: { Authorization: `Bearer ${token}`}
             });
+            console.log(response.data);
             // let newToken;
             const  { token: newToken } = response.data;
             console.log('token', newToken);
             setToken(newToken);
+          
             setShowSuccessMessage(true);
         } catch (error) {
             setShowErrorMessage(true);
