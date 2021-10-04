@@ -1,25 +1,27 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router';
 import { useToken } from '../auth/useToken';
-import { useUser } from '../auth/useUser';
+// import { useUser } from '../auth/useUser';
 import axios from 'axios';
 
 export default function LoginPage() {
 
-    
+    const history = useHistory();
+    const tempToken  = localStorage.getItem('token');
+    console.log(tempToken);
+   
 
  
-    const user = useUser();
+    // const user = useUser();
     const [token, setToken] = useToken();
+    if(token) {
+        history.push('/');
+    }
     const [errorMessage, setErrorMessage] = useState('');
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const history = useHistory();
-    if(user) {
-        history.push('/');
-    }
     const onChange = (e) => {
         if(e.target.type === 'password'){
             setPassword(e.target.value)

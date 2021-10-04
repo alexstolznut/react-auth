@@ -41,7 +41,7 @@ export const updateUserInfoRoute = {
             
             const db = getDbConnection('react-auth-db');
             const result = await db.collection('users').findOneAndUpdate(
-                {_id: ObjectId(userId)},
+                {_id: ObjectId(id)},
                 {$set: {info: updates}},
                 {returnOriginal: false},
             );

@@ -14,7 +14,7 @@ export default function SignupPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const history = useHistory();
-    if(user) {
+    if(token) {
         history.push('/');
     }
     const onSignupClick = async() => {

@@ -4,16 +4,20 @@ import axios from 'axios';
 import { useToken } from '../auth/useToken';
 import { useUser } from '../auth/useUser';
 
-export const UserInfoPage = () => {
+export const UserInfoPage =  () => {
+    const history = useHistory();
+
+
+
+   
     const user = useUser();
     const [token, setToken] = useToken();
 
     const { id, email, info } = user;
     // We'll use the history to navigate the user
     // programmatically later on (we're not using it yet)
-    const history = useHistory();
+    
  
-
     // These states are bound to the values of the text inputs
     // on the page (see JSX below). 
     const [favoriteFood, setFavoriteFood] = useState(info.favoriteFood || '');
@@ -66,7 +70,8 @@ export const UserInfoPage = () => {
     const logOut = () => {
         // We'll want to log the user out here
         // and send them to the "login page"
-        alert('Log out functionality not implemented yet');
+        localStorage.removeItem('token');
+        history.push('/login');
     }
     
     const resetValues = () => {

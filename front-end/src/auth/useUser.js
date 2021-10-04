@@ -16,7 +16,7 @@ export const useUser = () => {
 
 
     useEffect(()=> {
-        if(!token) {
+        if(!token || token === null) {
             setUser(null)
         } else {
             console.log('token updated');
