@@ -5,7 +5,6 @@ import { useToken } from '../auth/useToken';
 import { useUser } from '../auth/useUser';
 
 export default function SignupPage() {
-    const user = useUser();
     const [token, setToken] = useToken();
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -25,7 +24,7 @@ export default function SignupPage() {
 
         const { token } = response.data;
         setToken(token);
-        history.push('/')
+        history.push('/please-verify')
     }
     return (
         <div className="content-container">

@@ -13,7 +13,7 @@ export const UserInfoPage =  () => {
     const user = useUser();
     const [token, setToken] = useToken();
 
-    const { id, email, info } = user;
+    const { id, email, info, isVerified } = user;
     // We'll use the history to navigate the user
     // programmatically later on (we're not using it yet)
     
@@ -86,6 +86,7 @@ export const UserInfoPage =  () => {
     return (
         <div className="content-container">
             <h1>Info for {email}</h1>
+            { !isVerified && <div className="fail">You won't be able to make any changes until you verify your email</div>}
             {showSuccessMessage && <div className="success">Successfully saved user data!</div>}
             {showErrorMessage && <div className="fail">Uh oh... something went wrong and we couldn't save changes</div>}
             <label>
