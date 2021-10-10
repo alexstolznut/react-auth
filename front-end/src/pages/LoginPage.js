@@ -62,7 +62,7 @@ export default function LoginPage() {
                 disable={ !email || !password }
                 onClick={onLoginClick}>Log In</button>
             <button
-                onClick={()=>history.push("/forgotPassword")}>Forgot your password</button>
+                onClick={()=>history.push("/forgot-password")}>Forgot your password</button>
             <button
                 onClick={()=>history.push("/signup")}>Don't have an account? Sign up</button>
             
