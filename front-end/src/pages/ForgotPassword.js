@@ -10,10 +10,10 @@ export const ForgotPassword = () => {
 
     const history = useHistory();
 
-    const onSubmit = async () => {
+    const onSubmitClicked = async () => {
        
         try {
-            const reponse = await axios.put(`/api/forgot-password/${emailValue}`);
+            await axios.put(`/api/forgot-password/${emailValue}`);
             setSuccess(true);
             setTimeout(()=>{history.push('/login')}, 3000)
             } catch(err) {
@@ -35,7 +35,7 @@ export const ForgotPassword = () => {
             }
             <input value={emailValue} onChange={(e)=>setEmailValue(e.target.value)} 
             placeholder="John@email.com"/>
-            <button disabled={!emailValue} onClick={onSubmit}>Send Reset Link</button>
+            <button disabled={!emailValue} onClick={onSubmitClicked}>Send Reset Link</button>
         </div>
     )
 }

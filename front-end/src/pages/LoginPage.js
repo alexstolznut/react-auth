@@ -59,7 +59,7 @@ export default function LoginPage() {
                 onChange={onChange}/>
             <hr />
             <button 
-                disable={ !email || !password }
+                disabled={ !email || !password }
                 onClick={onLoginClick}>Log In</button>
             <button
                 onClick={()=>history.push("/forgot-password")}>Forgot your password</button>
