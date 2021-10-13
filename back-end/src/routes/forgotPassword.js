@@ -3,7 +3,7 @@ import { sendEmail } from '../util/sendEmail';
 import { getDbConnection } from '../db';
 
 export const forgotPassword = {
-    path: '/forgot-password',
+    path: '/api/forgot-password/:email',
     method: 'put',
 
     handler: async (req, res) => {
@@ -19,6 +19,7 @@ export const forgotPassword = {
         const { result } = await db.collection('users').updateOne({email}, {$set: {passwordResetCode} });
 
         if(result.nModified > 0) {
+            console.log(process.env.FROM_EMAIL);
             try {
                 await sendEmail({
                     to: email,

@@ -8,7 +8,6 @@ export default function LoginPage() {
 
     const history = useHistory();
     const tempToken  = localStorage.getItem('token');
-    console.log(tempToken);
    
 
  
