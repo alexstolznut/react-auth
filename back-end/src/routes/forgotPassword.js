@@ -24,10 +24,10 @@ export const forgotPassword = {
                 await sendEmail({
                     to: email,
                     from: process.env.FROM_EMAIL,
-                    subject: 'Please verify your email',
+                    subject: 'Password Reset',
                     text: `
-                        Thanks for signing up! To verify your email, click here:
-                        http://localhost:3000/verify-email/${passwordResetCode}
+                        Click this link to reset your password:
+                        http://localhost:3000/reset-password/${passwordResetCode}
                     `,
                 });
 
