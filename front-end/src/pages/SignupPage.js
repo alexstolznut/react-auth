@@ -22,6 +22,8 @@ export default function SignupPage() {
             password: password
         });
 
+        console.log(response);
+
         const { token } = response.data;
         setToken(token);
         history.push('/please-verify')

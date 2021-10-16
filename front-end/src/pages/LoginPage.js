@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router';
 import { useToken } from '../auth/useToken';
 // import { useUser } from '../auth/useUser';
@@ -20,6 +20,23 @@ export default function LoginPage() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [googleOAuthURL, setGoogleOAuthURL] = useState('');
+
+    useEffect( () => {
+
+        const loadGoogleUrl = async () => {
+            try {
+                const googleUrl = await axios.get('/auth/google/url');
+                console.log(googleUrl.data.url);
+                setGoogleOAuthURL(googleUrl.data.url);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        loadGoogleUrl();
+       
+    }, [])
 
     const onChange = (e) => {
         if(e.target.type === 'password'){
@@ -59,11 +76,19 @@ export default function LoginPage() {
             <hr />
             <button 
                 disabled={ !email || !password }
-                onClick={onLoginClick}>Log In</button>
+                onClick={onLoginClick}>Log In
+            </button>
             <button
-                onClick={()=>history.push("/forgot-password")}>Forgot your password</button>
+                onClick={()=>history.push("/forgot-password")}>Forgot your password
+            </button>
             <button
-                onClick={()=>history.push("/signup")}>Don't have an account? Sign up</button>
+                onClick={()=>history.push("/signup")}>Don't have an account? Sign up
+            </button>
+            <button 
+            disabled={!googleOAuthURL}
+            onClick={()=>{window.location.href=googleOAuthURL}}>
+                Log In With Google
+            </button>
             
         </div>
     )
