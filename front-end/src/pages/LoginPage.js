@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { useToken } from '../auth/useToken';
 // import { useUser } from '../auth/useUser';
 import axios from 'axios';
+import { useQueryParams } from '../util/useQueryParams';
 
 export default function LoginPage() {
 
@@ -21,7 +22,14 @@ export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [googleOAuthURL, setGoogleOAuthURL] = useState('');
+    const { token: oAuthToken } = useQueryParams();
 
+    useEffect(()=> {
+        if(oAuthToken) {
+            setToken(oAuthToken);
+            history.push('/');
+        }
+    }, [oAuthToken, setToken, history])
     useEffect( () => {
 
         const loadGoogleUrl = async () => {

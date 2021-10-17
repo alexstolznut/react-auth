@@ -6,6 +6,7 @@ import { verifyEmailRoute } from './verifyEmailRoute';
 import { forgotPassword } from './forgotPassword';
 import { resetPasswordRoute } from './resetPassword';
 import { getGoogleOAuthURL } from './getGoogleOAuthURL';
+import { googleOAuthCallback } from './googleOAuthCallback';
 export const routes = [
     testRoute,
     signupRoute,
@@ -15,4 +16,5 @@ export const routes = [
     forgotPassword,
     resetPasswordRoute,
     getGoogleOAuthURL,
+    googleOAuthCallback,
 ];
