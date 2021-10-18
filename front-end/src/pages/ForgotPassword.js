@@ -13,7 +13,7 @@ export const ForgotPassword = () => {
     const onSubmitClicked = async () => {
        
         try {
-            await axios.put(`/api/forgot-password/${emailValue}`);
+            await axios.put(`/api/users/${emailValue}/password-reset`);
             setSuccess(true);
             setTimeout(()=>{history.push('/login')}, 3000)
             } catch(err) {
