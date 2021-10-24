@@ -3,6 +3,8 @@ import AWS, { CognitoIdentityCredentials } from 'aws-sdk';
 import nodeFetch from 'node-fetch';
 global.fetch = nodeFetch;
 
+console.log(nodeFetch);
+
 AWS.config.region = process.env.AWS_REGION;
 AWS.config.credentials = new CognitoIdentityCredentials({
     IdentityPoolId: process.env.AWS_IDENTITY_POOL_ID,

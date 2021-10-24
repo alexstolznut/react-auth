@@ -26,7 +26,7 @@ export default function SignupPage() {
 
         const { token } = response.data;
         setToken(token);
-        history.push('/please-verify')
+        history.push(`/please-verify?email=${encodeURIComponent(email)}`)
     }
     return (
         <div className="content-container">
