@@ -17,6 +17,7 @@ export default function SignupPage() {
         history.push('/');
     }
     const onSignupClick = async() => {
+        console.log('hello')
         const response = await axios.post('/api/signup', {
             email: email,
             password: password
@@ -26,7 +27,7 @@ export default function SignupPage() {
 
         const { token } = response.data;
         setToken(token);
-        history.push('/please-verify')
+        history.push(`/please-verify?email=${encodeURIComponent(email)}`)
     }
     return (
         <div className="content-container">

@@ -7,9 +7,10 @@ import { forgotPassword } from './forgotPassword';
 import { resetPasswordRoute } from './resetPassword';
 import { getGoogleOAuthURL } from './getGoogleOAuthURL';
 import { googleOAuthCallback } from './googleOAuthCallback';
+import { awsSignupRoute } from './awsSignupRoute';
 export const routes = [
     testRoute,
-    signupRoute,
+    awsSignupRoute,
     loginRoute,
     updateUserInfoRoute,
     verifyEmailRoute,
