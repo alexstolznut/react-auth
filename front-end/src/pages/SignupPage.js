@@ -17,6 +17,7 @@ export default function SignupPage() {
         history.push('/');
     }
     const onSignupClick = async() => {
+        console.log('hello')
         const response = await axios.post('/api/signup', {
             email: email,
             password: password
