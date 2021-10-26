@@ -16,4 +16,4 @@ const poolData = {
     ClientId: process.env.AWS_CLIENT_ID,
 };
 
-export const awsUserPool = new CognitoUserPool(pool);
+export const awsUserPool = new CognitoUserPool(poolData);
