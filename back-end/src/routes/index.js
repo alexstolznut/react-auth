@@ -9,9 +9,12 @@ import { getGoogleOAuthURL } from './getGoogleOAuthURL';
 import { googleOAuthCallback } from './googleOAuthCallback';
 import { awsSignupRoute } from './awsSignupRoute';
 import { awsVerifyEmail } from './awsVerifyEmail';
+
+
 export const routes = [
     testRoute,
     awsSignupRoute,
+    awsVerifyEmail,
     loginRoute,
     updateUserInfoRoute,
     verifyEmailRoute,

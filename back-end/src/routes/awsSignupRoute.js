@@ -3,8 +3,8 @@ import jwt from 'jsonwebtoken';
 import { getDbConnection } from '../db';
 import { awsUserPool } from '../util/awsUserPool';
 
-export const signUpRoute = {
-    path: '/api/signup',
+export const awsSignupRoute = {
+    path: '/api/aws-signup',
     method: 'post',
     handler: async (req, res) => {
         const { email, password } = req.body;
@@ -40,7 +40,7 @@ export const signUpRoute = {
                 info: startingInfo,
                 isVerified: false
             },
-            process.env.JWT_SECRRET,
+            process.env.JWT_SECRET,
             {
                 expiresIn: '2d',
             },

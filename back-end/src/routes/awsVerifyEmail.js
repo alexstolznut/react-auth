@@ -16,6 +16,8 @@ export const awsVerifyEmail = {
     path: '/api/aws-verify-email',
     method: 'put',
     handler: async (req, res) => {
+
+        console.log('in the func')
         const {
             email,
             verificationString
