@@ -13,9 +13,9 @@ export const ForgotPassword = () => {
     const onSubmitClicked = async () => {
        
         try {
-            await axios.put(`/api/users/${emailValue}/password-reset`);
+            await axios.put(`/api/aws-forgot-password/${emailValue}`);
             setSuccess(true);
-            setTimeout(()=>{history.push('/login')}, 3000)
+            setTimeout(()=>{history.push(`/aws-reset-password?email=${encodeURIComponent(emailValue)}`)}, 3000)
             } catch(err) {
                 setErrorMessage(err.message);
             }

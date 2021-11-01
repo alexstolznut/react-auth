@@ -8,6 +8,7 @@ import { EmailVerificationLandingPage } from './pages/EmailVerificationLandingPa
 import { ForgotPassword } from './pages/ForgotPassword';
 import { PasswordResetLandingPage } from './pages/PasswordResetLandingPage';
 import { EmailVerificationCode } from './pages/EmailVerificationCode';
+import { AWSResetPassword } from './pages/AWSResetPassword';
 
 export const Routes = () => {
     return (
@@ -36,6 +37,9 @@ export const Routes = () => {
                 </Route>
                 <Route path="/verify-email" exact>
                     <EmailVerificationCode/>
+                </Route>
+                <Route path="/aws-reset-password">
+                    <AWSResetPassword />
                 </Route>
             </Switch>
         </Router>

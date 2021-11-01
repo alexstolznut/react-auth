@@ -56,7 +56,7 @@ export default function LoginPage() {
         }
     }
     const onLoginClick = async() => {
-        const response = await axios.post('/api/login',{
+        const response = await axios.post('/api/aws-login',{
             email: email,
             password: password
         });

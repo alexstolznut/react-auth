@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import { getDbConnection } from '../db';
 import { awsUserPool } from '../util/awsUserPool';
 
-export const awsSignupRoute = {
+export const awsSignup = {
     path: '/api/aws-signup',
     method: 'post',
     handler: async (req, res) => {

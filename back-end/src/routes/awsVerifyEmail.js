@@ -1,16 +1,8 @@
-import {
-    ObjectId
-} from 'mongodb';
+import { ObjectId } from 'mongodb';
 import jwt from 'jsonwebtoken';
-import {
-    CognitoUser
-} from 'amazon-cognito-identity-js';
-import {
-    getDbConnection
-} from '../db';
-import {
-    awsUserPool
-} from '../util/awsUserPool';
+import { CognitoUser } from 'amazon-cognito-identity-js';
+import { getDbConnection } from '../db';
+import { awsUserPool } from '../util/awsUserPool';
 
 export const awsVerifyEmail = {
     path: '/api/aws-verify-email',
