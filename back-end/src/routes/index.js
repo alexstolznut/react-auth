@@ -10,7 +10,7 @@ import { googleOAuthCallback } from './googleOAuthCallback';
 import { awsSignupRoute } from './awsSignupRoute';
 export const routes = [
     testRoute,
-    awsSignupRoute,
+    signupRoute,
     loginRoute,
     updateUserInfoRoute,
     verifyEmailRoute,

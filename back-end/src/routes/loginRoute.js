@@ -16,10 +16,12 @@ export const loginRoute = {
            return res.sendStatus(401);
        }
 
-       const {_id:id, isVerified, passwordHash, info} = user;
+       const {_id:id, isVerified, passwordHash, salt, info} = user;
+       const pepper = process.env.PEPPER_STRING;
+       console.log(salt, pepper);
        console.log('backend',info);
 
-       const isCorrect = await bcrypt.compare(password, passwordHash);
+       const isCorrect = await bcrypt.compare(salt + password + pepper, passwordHash);
        
        if(isCorrect) {
            jwt.sign({
@@ -29,7 +31,7 @@ export const loginRoute = {
            {expiresIn: '2d'},
            (err, token)=>{
                if(err) {
-                   res.status(500).json({error: err});
+                   res.sendStatus(500);
                }
                res.status(200).json({token})
            });
