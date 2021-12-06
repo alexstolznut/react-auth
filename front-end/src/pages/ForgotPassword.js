@@ -11,9 +11,9 @@ export const ForgotPassword = () => {
     const history = useHistory();
 
     const onSubmitClicked = async () => {
-       
+        
         try {
-            await axios.put(`/api/users/${emailValue}/password-reset`);
+            await axios.put(`/api/forgot-password/${emailValue}`);
             setSuccess(true);
             setTimeout(()=>{history.push('/login')}, 3000)
             } catch(err) {

@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { useHistory } from 'react-router';
 import axios from 'axios';
 import { useToken } from '../auth/useToken';
-import { useUser } from '../auth/useUser';
 
 export default function SignupPage() {
     const [token, setToken] = useToken();

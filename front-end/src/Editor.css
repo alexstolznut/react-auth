@@ -1,0 +1,13 @@
+button.MuiToggleButton-root {
+    border: none;
+}
+div.draft-toolbar { 
+    border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+div.draft-container{
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgba(0,0,0, .12);
+    height: 80vh;
+    border-radius: 8px;
+}

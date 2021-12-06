@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,10 +22,25 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
+}
+
+.editorContainer {
+  padding: 1em;
+  margin: 1em;
+  width: 100%;
+}
+
+.editors {
+  width: 100%;
+  border: 1px blue solid;
+  padding: 1em;
+  margin: 1em;
+  font-family: 'Open Sans';
+  font-size: 90%;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +50,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+button.MuiToggleButton-root { 
+  border: none;
 }

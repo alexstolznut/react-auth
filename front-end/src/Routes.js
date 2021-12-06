@@ -7,13 +7,18 @@ import { PleaseVerifyEmailPage } from './pages/PleaseVerifyEmailPage';
 import { EmailVerificationLandingPage } from './pages/EmailVerificationLandingPage';
 import { ForgotPassword } from './pages/ForgotPassword';
 import { PasswordResetLandingPage } from './pages/PasswordResetLandingPage';
+import  {ArticleEditorPage}  from './pages/ArticleEditorPage';
+import Dashboard from './pages/Dashboard';
 
 export const Routes = () => {
     return (
         <Router>
             <Switch>
                 <PrivateRoute path="/" exact>
-                    <UserInfoPage />
+                    <ArticleEditorPage />
+                </PrivateRoute>
+                <PrivateRoute path="/dashboard" exact>
+                    <Dashboard />
                 </PrivateRoute>
                 <Route path="/login" exact>
                     <LoginPage />
