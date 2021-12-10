@@ -5,14 +5,13 @@ import { useToken } from '../auth/useToken';
 import axios from 'axios';
 import { useQueryParams } from '../util/useQueryParams';
 
-export default function LoginPage() {
+export const  LoginPage = () => {
 
     const history = useHistory();
     const tempToken  = localStorage.getItem('token');
    
 
  
-    // const user = useUser();
     const [token, setToken] = useToken();
     if(token) {
         history.push('/');

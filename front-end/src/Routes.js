@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { UserInfoPage } from './pages/UserInfoPage';
-import LoginPage  from './pages/LoginPage';
+import  { LoginPage }  from './pages/LoginPage';
 import SignupPage from './pages/SignupPage'
 import PrivateRoute from './auth/PrivateRoute';
 import { PleaseVerifyEmailPage } from './pages/PleaseVerifyEmailPage';
@@ -8,6 +8,8 @@ import { EmailVerificationLandingPage } from './pages/EmailVerificationLandingPa
 import { ForgotPassword } from './pages/ForgotPassword';
 import { PasswordResetLandingPage } from './pages/PasswordResetLandingPage';
 import  {ArticleEditorPage}  from './pages/ArticleEditorPage';
+import {ArticleTemplatePage} from './pages/ArticleTemplatePage';
+
 import Dashboard from './pages/Dashboard';
 
 export const Routes = () => {
@@ -17,14 +19,17 @@ export const Routes = () => {
                 <PrivateRoute path="/" exact>
                     <ArticleEditorPage />
                 </PrivateRoute>
-                <PrivateRoute path="/dashboard" exact>
+                <Route path="/dashboard" exact>
                     <Dashboard />
-                </PrivateRoute>
+                </Route>
                 <Route path="/login" exact>
                     <LoginPage />
                 </Route>
                 <Route path="/signup" exact>
                     <SignupPage />
+                </Route>
+                <Route path="/article/:articleId" exact>
+                    <ArticleTemplatePage />
                 </Route>
                 <Route path="/please-verify" exact>
                     <PleaseVerifyEmailPage />
